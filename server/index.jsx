@@ -1,5 +1,4 @@
 require('dotenv').config();
-
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
@@ -9,6 +8,7 @@ const UserModel = require("./Models/UserModel");
 const AdminModel = require("./Models/AdminModel");
  const WarningModel = require("./Models/WarningModel.js")
 const ComplaintModel = require("./Models/ComplaintModel");
+const razorPayRoute =require("./Routes/razorPay.js");
 
 // Middleware setup
 const app = express();
@@ -19,6 +19,30 @@ app.use(cors());
 // Routes
 //!only for user.
 // Registration route with email existence check
+
+
+//breach calls
+app.use("/api/razorpay", razorPayRoute);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 app.post("/register", async (req, res) => {
   try {
     // Check if email already exists

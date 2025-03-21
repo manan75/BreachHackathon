@@ -6,6 +6,7 @@ import HomePageCategories from "./FrontEndComponents/HomePageCategories";
 import WhyUsSection from "./FrontEndComponents/WhyUs";
 import { Alert } from "react-bootstrap";
 import Dashboard from "./Dashboard";
+import RentPayment from "./RazorPayment/RentPayment";
 
 const Home = () => {
    const { user, setUser } = useAuth();
@@ -74,6 +75,8 @@ const Home = () => {
 return(
    <>
    <Dashboard/>
+   <RentPayment/>
+
    </>
 )
 

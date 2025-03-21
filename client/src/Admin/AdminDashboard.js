@@ -13,80 +13,12 @@ function AdminDashboard() {
 
    const token = localStorage.getItem("token");
 
-   useEffect(() => {
-      fetchComplaints();
-   }, [token]);
-
-   const fetchComplaints = async () => {
-      try {
-         setLoading(true);
-         const response = await axios.get("http://localhost:3001/complaints", {
-            headers: { token },
-         });
-         setComplaints(response.data);
-      } catch (error) {
-         console.error("Error fetching complaints:", error);
-      } finally {
-         setLoading(false);
-      }
-   };
+  
 
   
 
-   const handleViewComplaint = (complaint) => {
-      setSelectedComplaint(complaint);
-      setStatusUpdate(complaint.status);
-      setShowModal(true);
-   };
 
-   const handleUpdateStatus = async () => {
-      if (!statusUpdate) {
-         alert("Please select a status before updating.");
-         return;
-      }
-
-      try {
-         await axios.put(
-            `http://localhost:3001/complaints/${selectedComplaint._id}`,
-            { status: statusUpdate },
-            { headers: { token } }
-         );
-
-         setComplaints((prev) =>
-            prev.map((comp) =>
-               comp._id === selectedComplaint._id ? { ...comp, status: statusUpdate } : comp
-            )
-         );
-
-         setShowModal(false);
-         alert("Status updated successfully!");
-      } catch (error) {
-         console.error("Error updating status:", error);
-         alert("Failed to update status. Please try again.");
-      }
-   };
-
-   const handleSendEmergencyMessage = async () => {
-      if (!emergencyMessage.trim()) {
-         alert("Please enter an emergency message.");
-         return;
-      }
-
-      try {
-         await axios.post(
-            "http://localhost:3001/emergency",
-            { message: emergencyMessage },
-            { headers: { token } }
-         );
-
-         setShowEmergencyModal(false);
-         setEmergencyMessage("");
-         alert("Emergency message sent successfully!");
-      } catch (error) {
-         console.error("Error sending emergency message:", error);
-         alert("Failed to send emergency message. Please try again.");
-      }
-   };
+   
 
    const getStatusBadge = (status) => {
       const variants = {
@@ -272,7 +204,7 @@ function AdminDashboard() {
                <Button variant="secondary" onClick={() => setShowModal(false)}>
                   Close
                </Button>
-               <Button variant="primary" onClick={handleUpdateStatus}>
+               <Button variant="primary" >
                   Update Status
                </Button>
             </Modal.Footer>
@@ -302,7 +234,7 @@ function AdminDashboard() {
                <Button variant="secondary" onClick={() => setShowEmergencyModal(false)}>
                   Cancel
                </Button>
-               <Button variant="danger" onClick={handleSendEmergencyMessage}>
+               <Button variant="danger" >
                   Send Emergency Message
                </Button>
             </Modal.Footer>
