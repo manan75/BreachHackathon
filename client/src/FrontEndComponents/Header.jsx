@@ -39,15 +39,11 @@ const Header = () => {
   };
 
   return (
-    <Navbar bg="primary" variant="dark" expand="lg" className="fixed-header shadow-sm align-content-center">
+    <Navbar bg="success" variant="dark" expand="lg" className="fixed-header shadow-sm align-content-center">
       <Container>
         <Navbar.Brand as={Link} to="/home" className="fw-bold fs-4 text-white">
-          <img
-            src={Emblem}
-            alt="AMC Logo"
-            className="logo-image  mx-3 rounded "
-            width="60"></img>
-          AMC
+        
+          ECO Wheels
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">

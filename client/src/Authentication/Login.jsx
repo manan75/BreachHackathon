@@ -71,7 +71,7 @@ function Login() {
                 required
               />
             </Form.Group>
-            <Button variant="primary" type="submit" className="w-100">
+            <Button variant="success" type="submit" className="w-100">
               Login
             </Button>
           </Form>

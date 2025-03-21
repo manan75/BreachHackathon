@@ -123,7 +123,7 @@ function AdminDashboard() {
             <Col md={3}>
                <Card className="text-center shadow-sm border-0">
                   <Card.Body>
-                     <h6>Total Complaints</h6>
+                     <h6>Total Vehicles</h6>
                      <h2 className="text-primary">{complaintStats.total}</h2>
                   </Card.Body>
                </Card>
@@ -131,7 +131,7 @@ function AdminDashboard() {
             <Col md={3}>
                <Card className="text-center shadow-sm border-0">
                   <Card.Body>
-                     <h6>Resolved Complaints</h6>
+                     <h6>Vehicles in use</h6>
                      <h2 className="text-success">{complaintStats.resolved}</h2>
                   </Card.Body>
                </Card>
@@ -139,7 +139,7 @@ function AdminDashboard() {
             <Col md={3}>
                <Card className="text-center shadow-sm border-0">
                   <Card.Body>
-                     <h6>Pending Complaints</h6>
+                     <h6>Remaining Vehicles</h6>
                      <h2 className="text-warning">{complaintStats.pending}</h2>
                   </Card.Body>
                </Card>
@@ -147,7 +147,7 @@ function AdminDashboard() {
             <Col md={3}>
                <Card className="text-center shadow-sm border-0">
                   <Card.Body>
-                     <h6>Escalated Complaints</h6>
+                     <h6>Damaged Vehicles</h6>
                      <h2 className="text-danger">{complaintStats.escalated}</h2>
                   </Card.Body>
                </Card>
@@ -158,19 +158,12 @@ function AdminDashboard() {
             <Card.Body>
                <div className="d-flex justify-content-between align-items-center mb-4">
                   <h2 className="mb-0">Admin Dashboard</h2>
-                  <Button
-                    variant="danger"
-                     onClick={() => setShowEmergencyModal(true)}
-                     className="d-flex align-items-center"
-                  >
-                     <i className="fas fa-exclamation-triangle me-2"></i>
-                     Issue Emergency Warning
-                  </Button>
+                 
                </div>
 
                <Card className="border-0 shadow-sm">
                   <Card.Header className="bg-white">
-                     <h5 className="mb-0">Complaints Management</h5>
+                     <h5 className="mb-0">Management</h5>
 
                    
                   </Card.Header>
@@ -178,11 +171,11 @@ function AdminDashboard() {
                      <Table responsive hover className="align-middle mb-0">
                         <thead className="bg-light">
                            <tr>
-                              <th>ID</th>
-                              <th>Category</th>
+                              <th>Vehicle ID</th>
+                  
                               <th>Area</th>
                               <th>Description</th>
-                              <th>Urgency</th>
+                              
                               <th>Status</th>
                               <th>Date</th>
                             
@@ -205,11 +198,11 @@ function AdminDashboard() {
                                        <td>
                                           <small className="text-muted">{complaint._id}</small>
                                        </td>
-                                       <td>{complaint.category}</td>
+                                       
                                        <td>{complaint.area}</td>
-                                       <td>{complaint.description.substring(0, 100)}...</td>
-                                       <td>{getUrgencyBadge(complaint.urgency)}</td>
-                                       <td>{getStatusBadge(complaint.status)}</td>
+                                       
+                                       <td></td>
+                                       <td></td>
                                        <td>{new Date(complaint.createdAt).toLocaleString()}</td>
                                        <td>
                                         

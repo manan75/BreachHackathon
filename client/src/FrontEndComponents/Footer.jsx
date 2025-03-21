@@ -9,7 +9,7 @@ const Footer = () => {
       <Container >
       <Row className="align-items-center">
         <Row md={2} style={{ textAlign: "left" }}>
-        <p className="text-muted">&copy; 2025 AMC. All Rights Reserved.</p>
+        <p className="text-muted">&copy;  All Rights Reserved.</p>
         </Row>
         <Col md={6} style={{ textAlign: "left" }}>
           <p className="text-muted"><a href="/home">Home</a></p>

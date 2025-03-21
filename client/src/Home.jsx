@@ -5,6 +5,7 @@ import { useAuth } from "./AuthContext";
 import HomePageCategories from "./FrontEndComponents/HomePageCategories";
 import WhyUsSection from "./FrontEndComponents/WhyUs";
 import { Alert } from "react-bootstrap";
+import Dashboard from "./Dashboard";
 
 const Home = () => {
    const { user, setUser } = useAuth();
@@ -68,45 +69,39 @@ const Home = () => {
       );
    }
 
-   return (
-      <div className="min-h-screen bg-gradient-to-b from-blue-50 via-white to-blue-50">
-         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-            <div className="space-y-6">
-               {/* Warnings Section */}
-               {showWarnings && warnings.length > 0 && (
-                  <div className="rounded-2xl shadow-lg bg-white p-4">
-                     {warnings.map((warning, index) => (
-                        <Alert
-                           key={index}
-                           variant="danger"
-                           onClose={() => setShowWarnings(false)}
-                           dismissible
-                        >
-                           <strong>Emergency Alert:</strong> {warning.warning}
-                        </Alert>
-                     ))}
-                  </div>
-               )}
 
-               {/* Categories Section */}
-               <section className="rounded-2xl shadow-lg bg-white p-8 transform hover:scale-[1.02] transition-transform duration-300">
-                  <HomePageCategories />
-               </section>
 
-               {/* Learn More Section */}
-               <section className="text-center space-y-8">
-                  <h2 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-blue-800 inline-block transform hover:scale-105 transition-transform duration-300">
-                     Learn More About Us
-                  </h2>
+return(
+   <>
+   <Dashboard/>
+   </>
+)
 
-                  <div className="rounded-2xl shadow-lg bg-white p-8 transform hover:scale-[1.02] transition-transform duration-300">
-                     <WhyUsSection />
-                  </div>
-               </section>
-            </div>
-         </div>
-      </div>
-   );
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   /* */
+   
+   
 };
 
 export default Home;
