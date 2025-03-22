@@ -21,6 +21,7 @@ import Home from './Home';
 import ProtectedRoute from './ProtectedRoute';
 import './styles/index.css';
 import EVManage from './Admin/EVManage';
+import UserMap from './UserMap';
 
 import AboutUsNew from './FrontEndComponents/AboutUs';
 import KYC from './KYC';
@@ -134,6 +135,31 @@ const AppRoutes = () => {
             </ProtectedRoute>
           }
         />
+        <Route
+          path="/homeLand"
+          element={
+            <ProtectedRoute>
+              <>
+                {renderHeader()}
+                <Home/>
+                {renderFooter()}
+              </>
+            </ProtectedRoute>
+          }
+        />
+                <Route
+          path="/dashb"
+          element={
+            <ProtectedRoute>
+              <>
+                {renderHeader()}
+                <UserMap/>
+                {renderFooter()}
+              </>
+            </ProtectedRoute>
+          }
+        />
+
         <Route
           path="/AdminDashboard"
           element={

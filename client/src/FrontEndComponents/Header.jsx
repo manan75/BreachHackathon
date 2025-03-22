@@ -58,10 +58,10 @@ const Header = () => {
             {user && (
               <>
                 <NavDropdown title="Complaints" id="basic-nav-dropdown">
-                  <NavDropdown.Item as={Link} to="/home" className="text-black me-3">
+                  <NavDropdown.Item as={Link} to="/ComplaintForm" className="text-black me-3">
                    Complaint Registration
                 </NavDropdown.Item>
-                <NavDropdown.Item  as={Link} to="/home" className="text-black me-3">
+                <NavDropdown.Item  as={Link} to="/MyComplaints" className="text-black me-3">
                    My Complaints
                    </NavDropdown.Item>
                 </NavDropdown>

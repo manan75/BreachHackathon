@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
+import { Link, useNavigate } from "react-router-dom";
 
 const KYC = () => {
     const [currentSlide, setCurrentSlide] = useState(1);
@@ -712,6 +713,9 @@ const KYC = () => {
                                             </div>
                                             <p className="text-xl font-semibold text-green-600">KYC Verification Completed!</p>
                                             <p className="text-gray-600 mt-2">Thank you for completing your KYC verification.</p>
+                                            <button>
+                                                <Link to="/homeLand">Go to Home</Link>
+                                            x</button>
                                         </div>
                                     ) : (
                                         <form onSubmit={handleSubmit} className="space-y-6">

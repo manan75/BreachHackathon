@@ -12,6 +12,7 @@ const AdminModel = require("./Models/AdminModel");
 const ComplaintModel = require("./Models/ComplaintModel");
 const razorPayRoute =require("./Routes/razorPay.js");
 const vehicleRoutes = require("./Routes/vehicleRoutes.js"); // Adjust path as needed
+const evRoute = require("./Routes/vehicleRoutes.js");
 
 
 // Middleware setup
@@ -100,6 +101,8 @@ app.use("/api/razorpay", razorPayRoute);
 
 
 app.use("/api", vehicleRoutes);
+
+app.use("/api", evRoute);
 
 
 

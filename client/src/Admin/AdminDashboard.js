@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { Badge, Button, Card, Col, Container, Row, Table } from "react-bootstrap";
+import { Badge, Card, Col, Container, Row, Table } from "react-bootstrap";
 
 function AdminDashboard() {
    const [vehicleStats, setVehicleStats] = useState({
@@ -10,6 +10,7 @@ function AdminDashboard() {
       maintenance: 0,
    });
    const [vehicles, setVehicles] = useState([]);
+   const [evVehicles, setEvVehicles] = useState([]);  // Add EV state
    const [loading, setLoading] = useState(true);
 
    const token = localStorage.getItem("token");
@@ -35,11 +36,23 @@ function AdminDashboard() {
          } catch (error) {
             console.error("Error fetching vehicles", error);
          }
+      };
+
+      const fetchEvVehicles = async () => {
+         try {
+            const response = await axios.get("http://localhost:3001/api/admin/ev-vehicles", {
+               headers: { Authorization: `Bearer ${token}` },
+            });
+            setEvVehicles(response.data);
+         } catch (error) {
+            console.error("Error fetching EV vehicles", error);
+         }
          setLoading(false);
       };
 
       fetchVehicleStats();
       fetchVehicles();
+      fetchEvVehicles();
    }, []);
 
    const getStatusBadge = (status) => {
@@ -92,7 +105,7 @@ function AdminDashboard() {
             </Col>
          </Row>
 
-         <h4 className="mb-3">Vehicle Details</h4>
+         <h4 className="mb-3">Regular Vehicles</h4>
          <Table striped bordered hover responsive>
             <thead>
                <tr>
@@ -114,6 +127,34 @@ function AdminDashboard() {
                         <td>{vehicle.model}</td>
                         <td>{vehicle.type}</td>
                         <td>{getStatusBadge(vehicle.status)}</td>
+                     </tr>
+                  ))
+               )}
+            </tbody>
+         </Table>
+
+         <h4 className="mb-3">EV Vehicles</h4>
+         <Table striped bordered hover responsive>
+            <thead>
+               <tr>
+                  <th>#</th>
+                  <th>Name</th>
+                  <th>Model</th>
+                  <th>Battery Status</th>
+               </tr>
+            </thead>
+            <tbody>
+               {loading ? (
+                  <tr>
+                     <td colSpan="4" className="text-center">Loading...</td>
+                  </tr>
+               ) : (
+                  evVehicles.map((ev, index) => (
+                     <tr key={ev._id}>
+                        <td>{index + 1}</td>
+                        <td>{ev.ev_name}</td>
+                        <td>{ev.ev_model}</td>
+                        <td>{ev.ev_battery_status}</td>
                      </tr>
                   ))
                )}
