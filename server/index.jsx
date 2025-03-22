@@ -84,41 +84,12 @@ app.use(cors());
 //     res.json({ message: 'KYC data received successfully!', data: kycData });
 // });
 
-
-
-
-
-
-
-
-
-
-
-
 //breach calls
 app.use("/api/razorpay", razorPayRoute);
-
-
 
 app.use("/api", vehicleRoutes);
 
 app.use("/api", evRoute);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 app.post("/register", async (req, res) => {
   try {
