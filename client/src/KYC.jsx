@@ -378,7 +378,7 @@ const KYC = () => {
         const base64Image = photoDataUrl;
 
         try {
-            const response = await fetch('http://localhost:3001/api/detect-face', {
+            const response = await fetch('http://localhost:5000/api/detect-face', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
