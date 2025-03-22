@@ -107,7 +107,7 @@ function ComplaintForm() {
               borderRadius: "8px",
             }
           }>
-            <h3>Welcome to the Public Complaint Management System</h3>
+            
             <p>We are committed to resolving your grievances efficiently. Please register your complaints below.</p>
           </div>
           <h3
@@ -134,31 +134,7 @@ function ComplaintForm() {
             }}
           >
             {/* Category */}
-            <Form.Group controlId="formCategory" className="mb-3">
-              <Form.Label style={{ fontWeight: 'bold' }}>Category</Form.Label>
-              <Form.Control
-                as="select"
-                onChange={(e) => setCategory(e.target.value)}
-                value={category}
-                required
-              >
-                <option>Choose a category...</option>
-                <option value="Road Repair">Road Repair</option>
-                <option value="Garbage Collection">Garbage Collection</option>
-                <option value="Water Supply">Water Supply</option>
-                <option value="Pollution (Air, Water, Noise)" selected={category === 'pollution'}>Pollution (Air, Water, Noise)</option>
-                <option value="Stray Animals">Stray Animals</option>
-                <option value="Roads and Traffic">Roads and Traffic</option>
-                <option value="Drainage and Water">Drainage and Water</option>
-                <option value="Trash">Trash</option>
-                <option value="Streetlights">Streetlights</option>
-                <option value="Contaminated Water Bodies">Contaminated Water Bodies</option>
-                <option value="Mosquitoes">Mosquitoes</option>
-                <option value="Cyber Crime">Cyber Crime</option>
-                <option value="Other">Other</option>
-              </Form.Control>
-            </Form.Group>
-
+            
             {/* Description */}
             <Form.Group controlId="formDescription" className="mb-3">
               <Form.Label style={{ fontWeight: 'bold' }}>Description</Form.Label>

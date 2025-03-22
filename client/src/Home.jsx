@@ -74,8 +74,6 @@ const Home = () => {
 return(
    <>
 <LandingPage/>
-   
-
    </>
 )
 

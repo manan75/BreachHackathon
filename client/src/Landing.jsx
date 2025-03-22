@@ -1,35 +1,12 @@
 import React from "react";
 import { FaCar, FaLeaf, FaBatteryFull, FaMapMarkerAlt, FaUserCircle, FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const LandingPage = () => {
   return (
     <div className="min-h-screen flex flex-col bg-white">
       {/* Navigation */}
-      <nav className="bg-black text-white p-4 shadow-md">
-        <div className="container mx-auto flex justify-between items-center">
-          <div className="flex items-center space-x-2">
-            <FaLeaf className="text-green-500 text-2xl" />
-            <span className="text-xl font-bold">Eco Wheels</span>
-          </div>
-          
-          <div className="hidden md:flex space-x-6">
-            <a href="#home" className="hover:text-green-400 transition-colors">Home</a>
-            <a href="#vehicles" className="hover:text-green-400 transition-colors">Vehicles</a>
-            <a href="#how-it-works" className="hover:text-green-400 transition-colors">How It Works</a>
-            <a href="#about" className="hover:text-green-400 transition-colors">About Us</a>
-            <a href="#contact" className="hover:text-green-400 transition-colors">Contact</a>
-          </div>
-          
-          <div className="flex space-x-4">
-            <button className="bg-transparent border border-green-500 text-green-500 hover:bg-green-500 hover:text-white px-4 py-2 rounded-md transition-colors">
-              Log In
-            </button>
-            <button className="bg-green-500 text-white px-4 py-2 rounded-md hover:bg-green-600 transition-colors">
-              Sign Up
-            </button>
-          </div>
-        </div>
-      </nav>
+     
       
       {/* Hero Section */}
       <section id="home" className="relative">
@@ -40,7 +17,7 @@ const LandingPage = () => {
               <p className="text-lg mb-6">Rent premium electric vehicles for a sustainable, enjoyable driving experience. Join the eco-friendly revolution on wheels.</p>
               <div className="flex space-x-4">
                 <button className="bg-green-500 text-white px-6 py-3 rounded-md hover:bg-green-600 transition-colors font-semibold">
-                  Rent Now
+                 <Link to="/dashb">Rent Now</Link>
                 </button>
                 <button className="bg-white text-black px-6 py-3 rounded-md hover:bg-gray-100 transition-colors font-semibold">
                   Learn More
