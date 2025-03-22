@@ -128,7 +128,7 @@ const AppRoutes = () => {
             <ProtectedRoute>
               <>
                 {renderHeader()}
-                <Home/>
+                <KYC/>
                 {renderFooter()}
               </>
             </ProtectedRoute>
