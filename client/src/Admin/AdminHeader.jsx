@@ -54,8 +54,8 @@ const AdminHeader = () => {
                   <Nav.Link as={Link} to="/adminDashboard/complaints" className="text-white me-3">
                      <i className="fa-solid fa-bell"></i> Manage Complaints
                   </Nav.Link>
-                  <Nav.Link as={Link} to="/adminDashboard/users" className="text-white me-3">
-                     <i className="fa-solid fa-users"></i> Manage Users
+                  <Nav.Link as={Link} to="/adminDashboard/evmanage" className="text-white me-3">
+                     <i className="fa-solid fa-users"></i> Manage EV
                   </Nav.Link>
                   {user ? (
                      <>

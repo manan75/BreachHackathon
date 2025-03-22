@@ -1,5 +1,6 @@
 import React from 'react';
 import map from './assests/map.jpg';
+import RentPayment from './RazorPayment/RentPayment';
 // EVMapComponent (extracted from previous response)
 const EVMapComponent = () => {
   // Replace with your actual Google Maps API Key
@@ -193,9 +194,7 @@ const Dashboard = () => {
                   </div>
                   <div className="flex justify-between items-center">
                     <div className="text-green-600 font-semibold">$89/day</div> {/* Darker green */}
-                    <button className="bg-green-500 text-white font-semibold px-4 py-2 rounded text-sm hover:bg-green-600 transition-colors">
-                      Rent Now
-                    </button>
+                    <RentPayment/>
                   </div>
                 </div>
               </div>

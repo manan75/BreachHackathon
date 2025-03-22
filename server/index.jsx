@@ -9,6 +9,8 @@ const AdminModel = require("./Models/AdminModel");
  const WarningModel = require("./Models/WarningModel.js")
 const ComplaintModel = require("./Models/ComplaintModel");
 const razorPayRoute =require("./Routes/razorPay.js");
+const vehicleRoutes = require("./Routes/vehicleRoutes.js"); // Adjust path as needed
+
 
 // Middleware setup
 const app = express();
@@ -26,6 +28,7 @@ app.use("/api/razorpay", razorPayRoute);
 
 
 
+app.use("/api", vehicleRoutes);
 
 
 

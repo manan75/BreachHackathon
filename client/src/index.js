@@ -20,6 +20,7 @@ import Notifications from './FrontEndComponents/Notfications';
 import Home from './Home';
 import ProtectedRoute from './ProtectedRoute';
 import './styles/index.css';
+import EVManage from './Admin/EVManage';
 
 import AboutUsNew from './FrontEndComponents/AboutUs';
 
@@ -155,12 +156,12 @@ const AppRoutes = () => {
           }
         />
         <Route
-          path="/AdminDashboard/users"
+          path="/adminDashboard/evmanage"
           element={
             <ProtectedRoute>
               <>
                 <AdminHeader />
-                <ManageUsers />
+                <EVManage/>
               </>
             </ProtectedRoute>
           }

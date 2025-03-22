@@ -51,27 +51,27 @@ const Header = () => {
             <Nav.Link as={Link} to="/home" className="text-white me-3">
               <i className="fa-regular fa-house"></i> Home
             </Nav.Link>
-            <Nav.Link as={Link} to="/AboutUsNew" className="text-white me-3">
+            <Nav.Link as={Link} to="/" className="text-white me-3">
               <i className="fa-regular fa-address-card"></i> About Us
             </Nav.Link>
             {user && (
               <>
                 <NavDropdown title="Complaints" id="basic-nav-dropdown">
-                  <NavDropdown.Item as={Link} to="/ComplaintForm" className="text-black me-3">
+                  <NavDropdown.Item as={Link} to="/home" className="text-black me-3">
                    Complaint Registration
                 </NavDropdown.Item>
-                <NavDropdown.Item  as={Link} to="/MyComplaints" className="text-black me-3">
+                <NavDropdown.Item  as={Link} to="/home" className="text-black me-3">
                    My Complaints
                    </NavDropdown.Item>
                 </NavDropdown>
                 
                 
                 <Nav.Link as={Link} to="/notifications" className="text-white me-3">
-                  <i className="fa-regular fa-circle-exclamation"></i> Notifications
+                  <i className="fa-regular fa-circle-exclamation"></i> Payment History
                 </Nav.Link>
               </>
             )}
-            <Nav.Link as={Link} to="/Contact" className="text-white me-3">
+            <Nav.Link as={Link} to="/home" className="text-white me-3">
               <i className="fa-regular fa-question"></i> Help and Support
             </Nav.Link>
 

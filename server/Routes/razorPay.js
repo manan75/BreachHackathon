@@ -3,6 +3,7 @@ const Razorpay = require("razorpay");
 const crypto = require("crypto");
 require("dotenv").config();
 
+
 const router = express.Router();
 
 // Initialize Razorpay with API credentials
@@ -14,21 +15,29 @@ const razorpay = new Razorpay({
 // Create an order before payment
 router.post("/create-order", async (req, res) => {
   try {
-    const { amount, currency } = req.body;
+    const { rentAmount, currency } = req.body;
+    const fixedDeposit = 1000; // Fixed deposit amount
+    const totalAmount = rentAmount + fixedDeposit;
 
     const options = {
-      amount: amount * 100, // Razorpay works in paisa (₹1 = 100 paisa)
+      amount: totalAmount * 100, // Convert INR to paisa
       currency: currency || "INR",
       receipt: `order_rcptid_${Math.floor(Math.random() * 1000000)}`,
     };
 
     const order = await razorpay.orders.create(options);
-    res.json(order);
+    
+    res.json({
+      id: order.id, // Razorpay order ID
+      amount: totalAmount * 100, // Amount in paisa
+      currency: order.currency,
+      rentAmount,
+      fixedDeposit,
+    });
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
 });
-
 // Verify payment after successful transaction
 router.post("/verify-payment", async (req, res) => {
   const { razorpay_order_id, razorpay_payment_id, razorpay_signature } = req.body;
