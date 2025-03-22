@@ -23,6 +23,7 @@ import './styles/index.css';
 import EVManage from './Admin/EVManage';
 
 import AboutUsNew from './FrontEndComponents/AboutUs';
+import KYC from './KYC';
 
 // Create a root container for React 18
 const root = ReactDOM.createRoot(document.getElementById('root')); // Ensure the ID matches the one in your index.html
@@ -127,7 +128,7 @@ const AppRoutes = () => {
             <ProtectedRoute>
               <>
                 {renderHeader()}
-                <Home />
+                <Home/>
                 {renderFooter()}
               </>
             </ProtectedRoute>
