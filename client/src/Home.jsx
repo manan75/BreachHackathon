@@ -8,6 +8,7 @@ import { Alert } from "react-bootstrap";
 import Dashboard from "./Dashboard";
 import RentPayment from "./RazorPayment/RentPayment";
 import Cart from "./Cart";
+import LandingPage from "./Landing";
 
 const Home = () => {
    const { user, setUser } = useAuth();
@@ -72,7 +73,7 @@ const Home = () => {
    }
 return(
    <>
-<Cart/>
+<LandingPage/>
    
 
    </>

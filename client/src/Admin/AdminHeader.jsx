@@ -51,7 +51,7 @@ const AdminHeader = () => {
                   <Nav.Link as={Link} to="/adminDashboard" className="text-white me-3">
                      <i className="fa-regular fa-tachometer-alt"></i> Dashboard
                   </Nav.Link>
-                  <Nav.Link as={Link} to="/adminDashboard/complaints" className="text-white me-3">
+                  <Nav.Link as={Link} to="/adminDashboard" className="text-white me-3">
                      <i className="fa-solid fa-bell"></i> Manage Complaints
                   </Nav.Link>
                   <Nav.Link as={Link} to="/adminDashboard/evmanage" className="text-white me-3">
