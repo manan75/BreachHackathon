@@ -2,18 +2,12 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-const { spawn } = require('child_process'); // For running Python script and index.jsx
+const { spawn } = require('child_process'); // For running Python script
 
 const app = express();
-const port = process.env.PORT || 5000; // Use environment port or 5000
+const port = 5000;
 
-app.use(cors(
-    {
-        origin: 'https://secbreach.vercel.app',
-        methods: ['POST', 'GET','PUT','DELETE','OPTIONS'],
-        credentials: true,
-    }
-));
+app.use(cors());
 app.use(bodyParser.json({ limit: '10mb' }));
 
 app.post('/api/detect-face', (req, res) => {
@@ -70,19 +64,3 @@ app.post('/api/kyc', (req, res) => {
 app.listen(port, () => {
     console.log(`Server listening on port http://localhost:${port}`);
 });
-
-// --- Spawn index.jsx as a separate Node.js process ---
-const indexJSXProcess = spawn('node', ['index.jsx']);
-
-indexJSXProcess.stdout.on('data', (data) => {
-    console.log(`index.jsx stdout: ${data}`); // Log output from index.jsx
-});
-
-indexJSXProcess.stderr.on('data', (data) => {
-    console.error(`index.jsx stderr: ${data}`); // Log errors from index.jsx
-});
-
-indexJSXProcess.on('close', (code) => {
-    console.log(`index.jsx process exited with code ${code}`); // Log when index.jsx exits
-});
-// --- End of spawning index.jsx ---

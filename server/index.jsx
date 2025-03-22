@@ -84,12 +84,41 @@ app.use(cors());
 //     res.json({ message: 'KYC data received successfully!', data: kycData });
 // });
 
+
+
+
+
+
+
+
+
+
+
+
 //breach calls
 app.use("/api/razorpay", razorPayRoute);
+
+
 
 app.use("/api", vehicleRoutes);
 
 app.use("/api", evRoute);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 app.post("/register", async (req, res) => {
   try {
@@ -372,7 +401,10 @@ app.delete("/admin/users/:id", auth, async (req, res) => {
   }
 });
 
+
+
 // **Send emergency message (Admin only)**
+
 app.post("/emergency", auth, async (req, res) => {
   if (!req.isAdmin) {
     return res.status(403).json({ message: "Only admins can send emergency messages" });
