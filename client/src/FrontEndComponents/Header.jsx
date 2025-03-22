@@ -5,6 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../AuthContext";
 import Emblem from "../Graphics/Emblem.png";
 import "../styles/navbar.css";
+import Logo from '../assests/EcoWheels.png'
 
 const Header = () => {
   const { user, setUser } = useAuth();
@@ -42,7 +43,7 @@ const Header = () => {
     <Navbar bg="success" variant="dark" expand="lg" className="fixed-header shadow-sm align-content-center">
       <Container>
         <Navbar.Brand as={Link} to="/home" className="fw-bold fs-4 text-white">
-        
+        <img src={Logo} alt="Brand Logo" style={{ width: "100px", height: "87px" , padding:"10px"}} />
           ECO Wheels
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -51,7 +52,7 @@ const Header = () => {
             <Nav.Link as={Link} to="/home" className="text-white me-3">
               <i className="fa-regular fa-house"></i> Home
             </Nav.Link>
-            <Nav.Link as={Link} to="/" className="text-white me-3">
+            <Nav.Link as={Link} to="/home" className="text-white me-3">
               <i className="fa-regular fa-address-card"></i> About Us
             </Nav.Link>
             {user && (

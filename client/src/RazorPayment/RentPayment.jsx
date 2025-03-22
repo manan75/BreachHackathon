@@ -6,18 +6,19 @@ const RentPayment = () => {
 
   const handlePayment = async () => {
     try {
-      // Step 1: Create Order from Backend
       const { data } = await axios.post("http://localhost:3001/api/razorpay/create-order", {
-        rentAmount: 500, // Rent Amount in INR
+        rentAmount: 500,
         currency: "INR",
+        user: { name: "Manan K", email: "manank@example.com", contact: "9999999999" },
+        vehicle: { model: "Honda Activa", type: "2-wheeler" },
       });
-
+  
       setOrderDetails({
         rent: data.rentAmount,
         deposit: data.fixedDeposit,
         total: data.amount / 100,
       });
-
+  
       const options = {
         key: "rzp_test_jNIj2aDe7PuYoF",
         amount: data.amount,
@@ -26,22 +27,28 @@ const RentPayment = () => {
         name: "Rent Payment",
         description: "Rental Service - Vehicle Rent + Security Deposit",
         handler: async (response) => {
-          const verifyResponse = await axios.post("http://localhost:3001/api/razorpay/verify-payment", response);
-
+          const verifyResponse = await axios.post("http://localhost:3001/api/razorpay/verify-payment", {
+            ...response,
+            user: { name: "Manan K", email: "manank@example.com", contact: "9999999999" },
+            vehicle: { model: "Honda Activa", type: "2-wheeler" },
+            amount: data.amount / 100,
+            currency: data.currency,
+          });
+  
           if (verifyResponse.data.success) {
-            alert("Payment Successful! Payment ID: " + response.razorpay_payment_id);
+            alert("Payment Successful! Booking saved.");
           } else {
-            alert("Payment verification failed");
+            alert("Payment verification failed.");
           }
         },
         prefill: {
           name: "Manan K",
-          email: "MananK@example.com",
+          email: "manank@example.com",
           contact: "9999999999",
         },
         theme: { color: "#3399cc" },
       };
-
+  
       const rzp = new window.Razorpay(options);
       rzp.open();
     } catch (error) {
@@ -49,6 +56,8 @@ const RentPayment = () => {
       alert("Payment failed. Please try again.");
     }
   };
+  
+
 
   return (
     <div className="p-4 border rounded shadow-md w-64">
